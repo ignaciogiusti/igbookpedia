@@ -71,7 +71,6 @@ fun BookSearchBar(
                     )
                 }
             }
-        }
         },
         modifier = modifier
             .background(
