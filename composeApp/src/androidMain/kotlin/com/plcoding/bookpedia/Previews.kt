@@ -13,7 +13,7 @@ private fun BookSearchBarPreview() {
     MaterialTheme {
             BookSearchBar(
                 searchQuery = "Test",
-                searchQueryChange = {},
+                onSearchQueryChange = {},
                 onImeSearch = {},
                 modifier = Modifier.fillMaxWidth()
             )
