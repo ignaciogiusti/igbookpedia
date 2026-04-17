@@ -72,5 +72,12 @@ fun BookSearchBar(
                 }
             }
         }
+        },
+        modifier = modifier
+            .background(
+                shape = RoundedCornerShape(20),
+                color = DesertWhite
+            )
+            .minimumInteractiveComponentSize()
     )
 }
