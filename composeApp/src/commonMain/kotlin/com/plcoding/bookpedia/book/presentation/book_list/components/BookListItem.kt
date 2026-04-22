@@ -27,6 +27,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
@@ -49,22 +50,24 @@ fun BookListItem(
     modifier: Modifier = Modifier
 ) {
     Surface(
-        shape = RoundedCornerShape(25.dp),
+        shape = RoundedCornerShape(0),
         modifier = modifier
+//            .padding(top = 16.dp)
             .clickable(onClick = onClick),
-        color = LightBlue.copy(alpha = 0.5f)
+        color = LightBlue.copy(alpha = 0.9f)
     )  {
         Row(
             modifier = Modifier
                 .padding(16.dp)
                 .fillMaxWidth()
-                .height(IntrinsicSize.Min)
+                .height(IntrinsicSize.Min),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
         Box(
                 modifier = Modifier
-                    .height(100.dp)
-                    .fillMaxWidth(),
-                contentAlignment = Alignment.Center
+                    .height(100.dp),
+//                contentAlignment = Alignment.Center
             ) {
                 var imageLoadResult by remember {
                     mutableStateOf<Result<Painter>?>(null)
@@ -129,7 +132,7 @@ fun BookListItem(
             }
             book.averageRating?.let { rating ->
                 Row(
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
                         text = "${round(rating * 10) / 10.0}",
