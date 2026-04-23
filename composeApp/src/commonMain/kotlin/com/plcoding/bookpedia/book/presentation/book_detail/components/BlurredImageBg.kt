@@ -42,7 +42,7 @@ fun BlurredImageBg(
             imageLoadResult = if(size.width > 1 && size.height > 1) {
                 Result.success(it.painter)
             } else {
-                Result.failure<Exception>("Invalid image dimensions")
+                Result.failure(Exception("Invalid image dimensions"))
             }
         }
     )
