@@ -14,10 +14,10 @@ import org.koin.compose.viewmodel.koinViewModel
 @Preview
 fun App() {
     MaterialTheme {
-        val navController = rememberNavController()
-        NavHost(
-            navController = navController,
-            startDestination = "bookList")
+//        val navController = rememberNavController()
+//        NavHost(
+//            navController = navController,
+//            startDestination = "bookList")
         val viewModel = koinViewModel<BookListViewModel>()
         BookListScreenRoot(
             viewModel = viewModel,
