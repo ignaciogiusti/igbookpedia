@@ -11,5 +11,6 @@ interface Route {
     @Serializable
     data object BookList: Route
 
+    @Serializable
     data class BookDetail(val id: String): Route
 }
