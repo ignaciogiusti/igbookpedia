@@ -6,6 +6,16 @@
     <string name="favorites">Favorites</string>
     <string name="no_favorites">No favorite books added yet</string>
     <string name="no_results">No matching results found</string>
+<!--  Book Details  -->
+    <string name="book_cover">Book cover</string>
+    <string name="rating">Rating</string>
+    <string name="pages">Pages</string>
+    <string name="languages">Languages</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="no_description">Description missing</string>
+    <string name="back_button">Back button</string>
+    <string name="add_favorite">Add to favorites</string>
+    <string name="remove_favorite">Remove from favorites</string>
 <!--  Errors  -->
     <string name="unknown_error">Something went wrong!</string>
     <string name="disk_full">You disk is full</string>
