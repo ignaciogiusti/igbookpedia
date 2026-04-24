@@ -27,7 +27,7 @@ import org.jetbrains.compose.resources.stringResource
 fun BlurredImageBg(
     imageUrl: String?,
     isFavorite: Boolean,
-    onFavoriteChange: (Boolean) -> Unit,
+    onFavoriteClick: (Boolean) -> Unit,
     onBackClick: () -> Unit,
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
