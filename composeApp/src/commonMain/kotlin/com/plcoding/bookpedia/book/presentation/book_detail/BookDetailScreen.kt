@@ -176,21 +176,21 @@ private fun BookDetailScreen(
 //                            .weight(1f),
 //                        contentAlignment = Alignment.Center,
 //                    ) {}
-                    Text(
-                        text = if(state.book.description.isNullOrBlank()) {
-//                            CircularProgressIndicator()
-                            stringResource(Res.string.no_description)
-                        } else {
-                            state.book.description
-                        },
-                        style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier
-                            .align(Alignment.Start)
-                            .fillMaxWidth(3/4f),
-                        textAlign = TextAlign.Justify,
-                        color = Color.Black,
-                    )
                 }
+                Text(
+                    text = if(state.book.description.isNullOrBlank()) {
+//                            CircularProgressIndicator()
+                        stringResource(Res.string.no_description)
+                    } else {
+                        state.book.description
+                    },
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier
+                        .align(Alignment.Start)
+                        .fillMaxWidth(3/4f),
+                    textAlign = TextAlign.Justify,
+                    color = Color.Black,
+                )
             }
         }
     }
