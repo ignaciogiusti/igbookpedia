@@ -18,6 +18,9 @@ import androidx.navigation.compose.rememberNavController
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import com.plcoding.bookpedia.app.Route
 import com.plcoding.bookpedia.book.presentation.SelectedBookViewModel
+import com.plcoding.bookpedia.book.presentation.book_detail.BookDetailAction
+import com.plcoding.bookpedia.book.presentation.book_detail.BookDetailScreenRoot
+import com.plcoding.bookpedia.book.presentation.book_detail.BookDetailViewModel
 import com.plcoding.bookpedia.book.presentation.book_list.BookListScreenRoot
 import com.plcoding.bookpedia.book.presentation.book_list.BookListViewModel
 import org.koin.compose.viewmodel.koinViewModel
@@ -56,17 +59,29 @@ fun App() {
                 composable<Route.BookDetail> {
                     val selectedBookViewModel =
                         it.sharedKoinViewModel<SelectedBookViewModel>(navController)
-                    val viewModel = koinViewModel<BookListViewModel>()
+                    val viewModel = koinViewModel<BookDetailViewModel>()
                     val selectedBook by selectedBookViewModel.selectedBook.collectAsStateWithLifecycle()
-
 //                    Dummy box
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        Text("$selectedBook")
+//                    Box(
+//                        modifier = Modifier
+//                            .fillMaxWidth(),
+//                        contentAlignment = Alignment.Center
+//                    ) {
+//                        Text("$selectedBook")
+//                    }
+//
+                    LaunchedEffect(selectedBook) {
+                        selectedBook?.let {
+                            viewModel.onAction(BookDetailAction.OnSelectedBookChange(it))
+                        }
                     }
+
+                    BookDetailScreenRoot(
+                        viewModel = viewModel,
+                        onBackClick = {
+                            navController.navigateUp()
+                        }
+                    )
                 }
             }
         }
