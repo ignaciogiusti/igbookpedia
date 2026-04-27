@@ -36,7 +36,7 @@ class BookListViewModel(
             if(cachedBooks.isEmpty()) {
                 observeSearchQuery()
             }
-            obseob
+            observeFavBooks()
         }
         .stateIn(
             viewModelScope,
