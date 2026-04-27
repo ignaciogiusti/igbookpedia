@@ -17,4 +17,4 @@ captures
 !*.xcworkspace/contents.xcworkspacedata
 **/xcshareddata/WorkspaceSettings.xcsettings
 node_modules/
-!schemas/com/plcoding/bookpedia/book/data/database/FavBookDb/
+composeApp/schemas/com.plcoding.bookpedia.book.data.database.FavBookDb/
