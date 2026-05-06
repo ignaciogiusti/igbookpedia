@@ -9,7 +9,7 @@ actual class DbFactory(
 ) {
     actual fun create(): RoomDatabase.Builder<FavBookDb> {
         val appContext = context.applicationContext
-//        val dbFile = appContext.getDabasePath() + "/${FavBookDb.DB_NAME}"
+//        val dbFile = appContext.getDatabasePath() + "/${FavBookDb.DB_NAME}"
         val dbFile = appContext.getDatabasePath(FavBookDb.DB_NAME)
         return databaseBuilder(context = appContext, name = dbFile.absolutePath)
     }
