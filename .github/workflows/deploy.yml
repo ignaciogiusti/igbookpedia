@@ -57,3 +57,31 @@ jobs:
 
       # Note: To fully automate App Store upload, 
       # you would add Xcode build steps here using 'xcodebuild'
+
+  
+#For Firebase
+#name: Deploy to Firebase
+#on:
+#  push:    branches: [ main ]
+#
+#jobs:
+#  distribute:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v4
+#      - name: set up JDK
+#        uses: actions/setup-java@v4
+#        with:
+#          java-version: '17'
+#          distribution: 'zulu'
+#
+#      - name: Build Release APK
+#        run: ./gradlew :androidApp:assembleRelease
+#
+#      - name: Upload to Firebase App Distribution
+#        uses: wzieba/Firebase-Distribution-Github-Action@v1
+#        with:
+#          appId: ${{ secrets.FIREBASE_APP_ID }}
+#          serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+#          groups: qa-team
+#          file: androidApp/build/outputs/apk/release/androidApp-release.apk
