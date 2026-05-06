@@ -155,7 +155,6 @@ fun BlurredImageBg(
                                     .size(80.dp)
                             )
                         }
-                            )
                         else -> {
                             Box {
                                 Image(
