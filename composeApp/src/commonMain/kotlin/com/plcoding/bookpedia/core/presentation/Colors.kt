@@ -14,4 +14,4 @@ val Turquoise = Color(0x40E0D0)
 val TurquoiseBlue = Color(0xFF8C8C8C)
 val Cyan = Color(0xFF00FFFF)
 
-expect val FlavorBg: Color
+val FlavorBg: Color = DarkRed.copy(0.7f)

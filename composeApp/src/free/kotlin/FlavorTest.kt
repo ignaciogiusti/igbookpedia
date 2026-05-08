@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
-actual val FlavorBg: Color = DarkOrange.copy(0.7f)
+val FlavorBg: Color = DarkOrange.copy(0.7f)
 
 @Composable
 fun FlavorText(modifier: Modifier = Modifier) {
