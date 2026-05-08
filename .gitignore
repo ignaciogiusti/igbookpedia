@@ -20,4 +20,7 @@ node_modules/
 composeApp/schemas/com.plcoding.bookpedia.book.data.database.FavBookDb/
 
 *.keystore
-*.jks
+*.jkss
+
+ *.aab
+ *.apk
