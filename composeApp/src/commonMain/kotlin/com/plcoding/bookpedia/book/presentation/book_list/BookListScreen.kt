@@ -43,6 +43,7 @@ import com.plcoding.bookpedia.book.presentation.book_list.components.BookList
 import com.plcoding.bookpedia.book.presentation.book_list.components.BookSearchBar
 import com.plcoding.bookpedia.core.presentation.DarkBlue
 import com.plcoding.bookpedia.core.presentation.DesertWhite
+import com.plcoding.bookpedia.core.presentation.FlavorBg
 import com.plcoding.bookpedia.core.presentation.LightBlue
 import com.plcoding.bookpedia.core.presentation.SandYellow
 import org.jetbrains.compose.resources.stringResource
@@ -114,7 +115,7 @@ fun BookListScreen(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth(),
-            color = SandYellow.copy(0.75f),
+            color = FlavorBg,
             shape = RoundedCornerShape(
                 topStart = 24.dp,
                 topEnd = 24.dp
