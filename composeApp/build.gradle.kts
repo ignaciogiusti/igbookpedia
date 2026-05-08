@@ -116,17 +116,26 @@ android {
         }
     }
     signingConfigs {
-        getByName("debug") {
-//            storeFile = file("debug.keystore")
-            storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
-            keyAlias = System.getenv("ANDROID_KEY_ALIAS")
-            keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
-        }
         create("release") {
             storeFile = file("release.keystore")
             storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
             keyAlias = System.getenv("ANDROID_KEY_ALIAS")
             keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
+        }
+        val keystoreFile = file("prod.keystore")
+        create("prod") {
+            if (keystoreFile.exists()) {
+                storeFile = keystoreFile
+                storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("ANDROID_KEY_ALIAS")
+                keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
+            } else {
+                val debugConfig = getByName("debug")
+                storeFile = debugConfig.storeFile
+                storePassword = debugConfig.storePassword
+                keyAlias = debugConfig.keyAlias
+                keyPassword = debugConfig.keyPassword
+            }
         }
     }
     buildTypes {
@@ -139,6 +148,16 @@ android {
         release {
             isMinifyEnabled = true
             signingConfig = signingConfigs.getByName("release")
+//            buildConfigField("String", "BASE_URL", "\"https://live.openlibrary.org/\"")
+//            getDefaultProguardFile("proguard-android-optimize.txt")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        create ("prod") {
+            isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("prod")
+            isDebuggable = true
 //            buildConfigField("String", "BASE_URL", "\"https://live.openlibrary.org/\"")
 //            getDefaultProguardFile("proguard-android-optimize.txt")
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),

@@ -11,5 +11,7 @@ val DesertWhite = Color(0xFFF7F7F7)
 val SandYellow = Color(0xFFFFBD64)
 val LightBlue = Color(0xFF9AD9FF)
 val Turquoise = Color(0x40E0D0)
- val TurquoiseBlue = Color(0xFF8C8C8C)
+val TurquoiseBlue = Color(0xFF8C8C8C)
 val Cyan = Color(0xFF00FFFF)
+
+expect val FlavorBg: Color
