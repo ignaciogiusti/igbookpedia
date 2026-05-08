@@ -97,15 +97,58 @@ android {
         versionCode = 1
         versionName = "1.0"
     }
+
+    flavorDimensions += listOf("membership")
+    productFlavors {
+        create("paid") {
+            applicationIdSuffix = ".paid"
+            dimension = "membership"
+        }
+        create("free") {
+            applicationIdSuffix = ".free"
+            dimension = "membership"
+        }
+    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = false
+    signingConfigs {
+        getByName("debug") {
+//            storeFile = file("debug.keystore")
+            storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("ANDROID_KEY_ALIAS")
+            keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
         }
+        create("release") {
+            storeFile = file("release.keystore")
+            storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("ANDROID_KEY_ALIAS")
+            keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
+        }
+    }
+    buildTypes {
+        debug {
+            isMinifyEnabled = false
+//            buildConfigField("String", "BASE_URL", "\"https://openlibrary.org/\"")
+            signingConfig = signingConfigs.getByName("debug")
+            isDebuggable = true
+        }
+        release {
+            isMinifyEnabled = true
+            signingConfig = signingConfigs.getByName("release")
+//            buildConfigField("String", "BASE_URL", "\"https://live.openlibrary.org/\"")
+//            getDefaultProguardFile("proguard-android-optimize.txt")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    buildFeatures {
+        compose = true
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -128,3 +171,10 @@ compose.desktop {
         }
     }
 }
+
+//class TestPlugin: Plugin<Project> {
+//    override fun apply(target: Project) {
+//        println("Print test")
+//    }
+//}
+//apply<TestPlugin>()
