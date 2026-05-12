@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "806661313588",
+    "project_id": "fir-bookpedia",
+    "storage_bucket": "fir-bookpedia.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806661313588:android:81485f2b209e4a5acda661",
+        "android_client_info": {
+          "package_name": "com.plcoding.bookpedia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBscm42nMXeV_ygMBHwSndEBjfHZ94reng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806661313588:android:e41d3513dc48f783cda661",
+        "android_client_info": {
+          "package_name": "com.plcoding.bookpedia.free"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBscm42nMXeV_ygMBHwSndEBjfHZ94reng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806661313588:android:f34a21360552bf4ecda661",
+        "android_client_info": {
+          "package_name": "com.plcoding.bookpedia.paid"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBscm42nMXeV_ygMBHwSndEBjfHZ94reng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
