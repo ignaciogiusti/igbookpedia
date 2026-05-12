@@ -14,4 +14,11 @@ val Turquoise = Color(0x40E0D0)
 val TurquoiseBlue = Color(0xFF8C8C8C)
 val Cyan = Color(0xFF00FFFF)
 
-expect val FlavorBg: Color
+//expect val FlavorBg: Color
+
+// 1. Remove 'expect'.
+// 2. Change to 'var' so Android can overwrite it.
+// 3. Provide the default value (iOS and Desktop will use this).
+var FlavorBg: Color = DarkRed.copy(alpha = 0.9f)
+    get() = field
+    set(value) { field = value }
