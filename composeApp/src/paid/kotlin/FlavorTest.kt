@@ -5,9 +5,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
-val FlavorBg: Color = Turquoise.copy(0.7f)
+@Composable
+fun isAndroid(): Boolean = true
+
+fun flavorBg() {
+    FlavorBg = Turquoise.copy(0.7f)
+}
 
 @Composable
-fun FlavorText(modifier: Modifier = Modifier) {
+fun FlavorTest(modifier: Modifier = Modifier) {
     Text("Paid")
 }
