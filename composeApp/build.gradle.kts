@@ -1,6 +1,8 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+//import com.google.firebase.appdistribution.gradle.firebaseAppDistribution
+
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -10,6 +12,13 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.serialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
+
+    //    Firebase
+    // Make sure that you have the Google services Gradle plugin
+    id("com.google.gms.google-services")
+//    id("com.plcoding.bookpedia")
+    // Add the App Distribution Gradle plugin
+    id("com.google.firebase.appdistribution")
 }
 
 kotlin {
@@ -82,6 +91,11 @@ kotlin {
 
         dependencies {
             ksp(libs.androidx.room.compiler)
+            implementation(platform("com.google.firebase:firebase-bom:34.13.0"))
+            // Add the dependency for the Firebase SDK for Google Analytics
+            implementation("com.google.firebase:firebase-analytics")
+            implementation("com.google.firebase:firebase-auth")
+            implementation("com.google.firebase:firebase-firestore")
         }
     }
 }
@@ -103,10 +117,18 @@ android {
         create("paid") {
             applicationIdSuffix = ".paid"
             dimension = "membership"
+//            firebaseAppDistribution {
+//                releaseNotes = "Release notes for full version"
+//                testers = "full@testers.com"
+//            }
         }
         create("free") {
             applicationIdSuffix = ".free"
             dimension = "membership"
+//            firebaseAppDistribution {
+//                releaseNotes = "Release notes for full version"
+//                testers = "full@testers.com"
+//            }
         }
     }
 
@@ -153,13 +175,17 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+//            firebaseAppDistribution {
+//                artifactType = "AAB"
+//                releaseNotesFile = "/path/to/releasenotes.txt"
+//                testers = "ali@example.com, bri@example.com, cal@example.com"
+//            }
         }
         create ("prod") {
             isMinifyEnabled = false
             signingConfig = signingConfigs.getByName("prod")
             isDebuggable = true
 //            buildConfigField("String", "BASE_URL", "\"https://live.openlibrary.org/\"")
-//            getDefaultProguardFile("proguard-android-optimize.txt")
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
@@ -190,10 +216,3 @@ compose.desktop {
         }
     }
 }
-
-//class TestPlugin: Plugin<Project> {
-//    override fun apply(target: Project) {
-//        println("Print test")
-//    }
-//}
-//apply<TestPlugin>()
