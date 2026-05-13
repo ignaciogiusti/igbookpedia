@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 //import com.google.firebase.appdistribution.gradle.firebaseAppDistribution
 
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
@@ -16,7 +15,7 @@ plugins {
     //    Firebase
     // Make sure that you have the Google services Gradle plugin
     id("com.google.gms.google-services")
-//    id("com.plcoding.bookpedia")
+//    id("com.android.application")
     // Add the App Distribution Gradle plugin
     id("com.google.firebase.appdistribution")
 }
